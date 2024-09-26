@@ -30,11 +30,18 @@ const port = 8080;
   await producer.connect()
   await consumer.connect()
 
+  await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
+  await consumer.run({
+    eachMessage: async ({ message }) => {
+      console.log(`Received message: ${message.value}`)
+    },
+  });
+
    // Expose metrics on /metrics endpoint
    app.get('/metrics', async (req, res) => {
     res.set('Content-Type', register.contentType);
     res.end(await register.metrics());
-});
+  });
 
     // Start server
     app.listen(port, () => {
