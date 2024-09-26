@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "dev": "ts-node-dev --files --respawn index.ts",
+    "build": "tsc && node dist"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.1.0",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@christiangalsterer/kafkajs-prometheus-exporter": "^3.2.0",
+    "express": "^4.21.0",
+    "kafkajs": "^2.2.4",
+    "prom-client": "^14.2.0"
+  }
+}
